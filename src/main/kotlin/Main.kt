@@ -1,21 +1,23 @@
 import kotlin.reflect.full.declaredMemberProperties
+import kotlin.reflect.full.memberProperties
 
 /**
  * Created by sanf0rd on 19/06/17.
  */
 
-fun readProperties(instance: Any) {
-    val clazz = instance.javaClass.kotlin
-    clazz.declaredMemberProperties.forEach {
-        println("${it.name} --[${it.returnType}]---> ${it.get(instance)}")
+interface Test {
+    fun hehe() {
+        val clazz = this.javaClass.kotlin
+        clazz.memberProperties.forEach {
+            println("${it.name} --[${it.returnType}]---> ${it.get(this)}")
+        }
     }
 }
 
-data class MyData(val name: String, val age: Int)
+class MyData(val name: String, val age: Int): Test
 
 fun main(args: Array<String>) {
 
     val data = MyData(name = "Sanford", age = 19)
-
-    readProperties(data)
+    data.hehe()
 }
