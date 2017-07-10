@@ -45,7 +45,14 @@ class KronusOrm() {
             Class.forName("org.sqlite.JDBC")
             dbUrl = "jdbc:sqlite:$databasePath/$databaseName"
         }
-        
+
         connection = DriverManager.getConnection(dbUrl)
+    }
+
+    /**
+     * Method to close database connection
+     */
+    fun close() {
+        connection?.close()
     }
 }
