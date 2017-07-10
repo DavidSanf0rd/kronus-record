@@ -22,10 +22,10 @@ fun main(args: Array<String>) {
 //    val data = MyData(name = "Sanford", age = 19)
 //    data.hehe()
 
-    val kronus = KronusOrm("teste.db")
+    val kronus = KronusOrm("novo.db")
     val tableManager = TableManager(kronus.connection!!)
 
-    val user = User(age = 39, name = "Rafael")
+    val user = User(age = 67, name = "vó")
 
     val result = tableManager.save(user)
 
