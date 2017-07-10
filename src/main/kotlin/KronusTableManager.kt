@@ -14,7 +14,7 @@ class KronusTableManager(connection: Connection) {
     }
 
     private fun createTable(clazz: Any) {
-        statement.execute(Builder().create(clazz))
+        statement.execute(SqlBuilder.create(clazz))
         //log(this.javaClass.simpleName, "table ${clazz.javaClass.simpleName} has been created.")
     }
 

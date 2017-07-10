@@ -1,4 +1,4 @@
-package Helpers
+package Extensions
 
 /**
  * Created by sanf0rd on 10/07/17.
