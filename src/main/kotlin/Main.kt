@@ -19,6 +19,15 @@ data class User(val name: String, val age: Int)
 
 fun main(args: Array<String>) {
 
-    val data = MyData(name = "Sanford", age = 19)
-    data.hehe()
+//    val data = MyData(name = "Sanford", age = 19)
+//    data.hehe()
+
+    val kronus = KronusOrm("teste.db")
+    val tableManager = TableManager(kronus.connection!!)
+
+    val user = User(age = 39, name = "Rafael")
+
+    val result = tableManager.save(user)
+
+    print(result)
 }
