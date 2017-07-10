@@ -15,6 +15,8 @@ interface Test {
 
 class MyData(val name: String, val age: Int): Test
 
+data class User(val name: String, val age: Int)
+
 fun main(args: Array<String>) {
 
     val data = MyData(name = "Sanford", age = 19)
