@@ -1,5 +1,7 @@
 import Core.KronusOrm
 import Core.TableManager
+import Core.extensions.listWith
+import Core.interfaces.DBEntity
 
 /**
  * Created by victoralisson on 20/06/17.
@@ -32,7 +34,7 @@ fun main(args: Array<String>) {
     val kronus = KronusOrm("gabi.db")
 
     val user = User(email ="cao@gmail.com", name = "vó")
-    val result = kronus.save(user)
+//    val result = kronus.save(user)
 
-    print(result)
+    print(j)
 }
