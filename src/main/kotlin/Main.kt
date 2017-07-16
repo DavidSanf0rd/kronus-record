@@ -29,7 +29,7 @@ fun main(args: Array<String>) {
 //    val data = MyData(name = "Sanford", age = 19)
 //    data.hehe()
 
-    val kronus = KronusOrm("rafael.db")
+    val kronus = KronusOrm("gabi.db")
 
     val user = User(email ="cao@gmail.com", name = "vó")
     val result = kronus.save(user)

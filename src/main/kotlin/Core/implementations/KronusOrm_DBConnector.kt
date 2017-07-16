@@ -12,7 +12,7 @@ interface KronusOrm_DBConnector : DBConnector {
     override fun connect() {
         var databaseName = databaseName?.let { it } ?: return //trow an error in future
 
-        if (databaseName.endsWith(".db")) {
+        if (databaseName.endsWith(".db").not()) {
             databaseName = "$databaseName.db"
             this.databaseName = databaseName
         }
