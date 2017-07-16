@@ -33,11 +33,10 @@ fun main(args: Array<String>) {
 //    data.hehe()
 
     val kronus = KronusOrm("gabi.db")
+    val user = User(email ="ascao@gmail.com", name = "vsó")
+    kronus.save(user)
 
-    val user = User(email ="cao@gmail.com", name = "vó")
-//    val result = kronus.save(user)
+    //val users = kronus.allFrom(User::class)
 
-    val users = kronus.allFrom(User::class)
-
-    print(users)
+    //print(users)
 }

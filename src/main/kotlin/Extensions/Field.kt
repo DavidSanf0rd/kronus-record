@@ -34,7 +34,7 @@ fun Field.isAutoIncrement(): Boolean {
 val Type.sql: String
     get() {
         return when (this) {
-            Int::class.java, Boolean::class.java -> "INTEGER"
+            Int::class.java, Integer::class.java, Boolean::class.java -> "INTEGER"
             Long::class.java -> "BIGINT"
             Double::class.java, Float::class.java -> "DOUBLE"
             else -> "TEXT"
