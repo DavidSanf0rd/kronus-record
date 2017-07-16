@@ -5,6 +5,4 @@
 interface ActiveRecord: Deletable<DataModel>, Writeable<DataModel>, Readable<DataModel>, Updatable<DataModel> {
 
 
-
 }
-
