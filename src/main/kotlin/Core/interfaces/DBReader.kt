@@ -7,4 +7,5 @@ import kotlin.reflect.KClass
  */
 interface DBReader: DBOperator {
     fun allFrom(entity: KClass<DBEntity>): List<DBEntity>
+    fun instanceWith(id: Long): DBEntity
 }
