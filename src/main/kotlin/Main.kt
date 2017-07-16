@@ -1,3 +1,5 @@
+import Core.KronusOrm
+
 fun main(args: Array<String>) {
 
 //    val data = MyData(name = "Sanford", age = 19)
