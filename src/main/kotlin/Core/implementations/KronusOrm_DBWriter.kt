@@ -1,5 +1,6 @@
 package Core.implementations
 
+import Core.interfaces.DBEntity
 import Core.interfaces.DBWriter
 
 /**
@@ -7,7 +8,7 @@ import Core.interfaces.DBWriter
  */
 interface KronusOrm_DBWriter: DBWriter {
 
-    override fun save(instance: Any) {
-        tableManager.save(clazz = instance)
+    override fun save(instance: DBEntity) {
+        tableManager.save(instance)
     }
 }
