@@ -1,7 +1,8 @@
 import Core.KronusOrm
 import Core.TableManager
-import Core.extensions.listWith
 import Core.interfaces.DBEntity
+import org.sqlite.core.DB
+import kotlin.reflect.KClass
 
 /**
  * Created by victoralisson on 20/06/17.
@@ -22,7 +23,7 @@ import Core.interfaces.DBEntity
 //    }
 //}
 
-//class MyData(val name: String, val age: Int): Test
+//class MyData(val name: String, val age: Int): DBEntity
 
 //data class User(val name: String, val age: Int)
 
@@ -36,5 +37,8 @@ fun main(args: Array<String>) {
     val user = User(email ="cao@gmail.com", name = "vó")
 //    val result = kronus.save(user)
 
-    print(j)
+
+    val users = kronus.allFrom(User::class)
+
+    print(users)
 }
