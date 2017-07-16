@@ -7,5 +7,4 @@ import java.util.ArrayList
  */
 interface DBWriter: DBOperator {
     fun save(instance: DBEntity)
-    fun List a = a
 }
