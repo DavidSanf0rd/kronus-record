@@ -34,9 +34,9 @@ fun main(args: Array<String>) {
 
     val kronus = KronusOrm("gabi.db")
     val user = User(email ="ascao@gmail.com", name = "vsó")
-    kronus.save(user)
+    //kronus.save(user)
 
-    //val users = kronus.allFrom(User::class)
+    val users = kronus.allFrom(User::class)
 
-    //print(users)
+    print(users)
 }

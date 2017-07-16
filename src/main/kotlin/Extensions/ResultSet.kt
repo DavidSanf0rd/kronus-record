@@ -2,13 +2,11 @@ package Extensions
 
 import Core.interfaces.DBEntity
 import java.sql.ResultSet
-import kotlin.reflect.KClass
-import kotlin.reflect.KMutableProperty
-import kotlin.reflect.KParameter
-import kotlin.reflect.full.createInstance
+import kotlin.reflect.*
 import kotlin.reflect.full.findParameterByName
 import kotlin.reflect.full.memberProperties
 import kotlin.reflect.full.primaryConstructor
+import kotlin.reflect.jvm.kotlinProperty
 
 /**
  * Created by Sanf0rd on 16/07/17.
@@ -19,6 +17,7 @@ fun <T : DBEntity> ResultSet.asListOf(entity: KClass<T>): List<DBEntity> {
 
     while (this.next()) {
         val parameterMap: MutableMap<KParameter, Any> = mutableMapOf()
+        val optionalsMap: MutableMap<KProperty1<T>, Any> = mutableMapOf()
         var entityConstructor = entity.primaryConstructor
 
         val fields = entity.java.declaredFields + entity.java.superclass.declaredFields
@@ -31,7 +30,7 @@ fun <T : DBEntity> ResultSet.asListOf(entity: KClass<T>): List<DBEntity> {
                 @Suppress("IMPLICIT_CAST_TO_ANY")
                 var value = when (field.genericType) {
                     String::class.java -> this.getString(field.name)
-                    Int::class.java -> this.getInt(field.name)
+                    Int::class.java, Integer::class.java -> this.getInt(field.name)
                     Double::class.java -> this.getDouble(field.name)
                     Float::class.java -> this.getFloat(field.name)
                     Long::class.java -> this.getLong(field.name)
@@ -41,11 +40,17 @@ fun <T : DBEntity> ResultSet.asListOf(entity: KClass<T>): List<DBEntity> {
                 }
 
                 val parameter = entityConstructor?.findParameterByName(field.name)
-                parameterMap.put(key = parameter!!, value = value)
-            }
 
+                if (parameter != null) {
+                    parameterMap.put(key = parameter, value = value)
+                } else {
+                    field.kotlinProperty
+                    kProperty?.let{ optionalsMap.put(key = it, value = value) }
+                }
+            }
         }
         val newEntity = entityConstructor?.callBy(parameterMap)
+
         newEntity?.let { resultList.add(it) }
     }
 
