@@ -24,7 +24,6 @@ class KronusOrm(): KronusOrm_DBConnector, KronusOrm_DBWriter, KronusOrm_DBReader
     constructor(databaseName: String, databasePath: String) : this() {
         this.databaseName = databaseName
         this.databasePath = databasePath
-
         connect()
     }
 }

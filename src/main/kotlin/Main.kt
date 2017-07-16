@@ -28,16 +28,8 @@ import kotlin.reflect.KClass
 //data class User(val name: String, val age: Int)
 
 fun main(args: Array<String>) {
+    val user = User(email ="davidSanford@gmail.com", name = "david")
+    user.save()
 
-//    val data = MyData(name = "Sanford", age = 19)
-//    data.hehe()
-
-    val kronus = KronusOrm("gabi.db")
-
-    val user = User(email ="cao@gmail.com", name = "vó")
-//    val result = kronus.save(user)
-
-    val users = kronus.allFrom(User::class)
-
-    print(users)
+    print(user.all())
 }

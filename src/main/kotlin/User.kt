@@ -3,8 +3,4 @@
  */
 
 data class User(var name: String, var email: String) : KronusRecord() {
-
-    fun teste() {
-        print("teste")
-    }
 }
