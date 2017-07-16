@@ -12,5 +12,8 @@ interface DBConnector {
     var connection: Connection
 
     fun connect()
-    fun disconnect()
+
+    fun disconnect() {
+        connection?.close()
+    }
 }

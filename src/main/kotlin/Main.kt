@@ -37,7 +37,6 @@ fun main(args: Array<String>) {
     val user = User(email ="cao@gmail.com", name = "vó")
 //    val result = kronus.save(user)
 
-
     val users = kronus.allFrom(User::class)
 
     print(users)

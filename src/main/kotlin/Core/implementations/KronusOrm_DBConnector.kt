@@ -33,8 +33,4 @@ interface KronusOrm_DBConnector : DBConnector {
 
         connection = DriverManager.getConnection(dbUrl)
     }
-
-    override fun disconnect() {
-        connection?.close()
-    }
 }
