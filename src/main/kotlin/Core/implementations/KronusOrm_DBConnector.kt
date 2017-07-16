@@ -1,12 +1,14 @@
-package Core
+package Core.implementations
 
+import Core.interfaces.DBConnector
 import Extensions.OperationalSystem
 import java.sql.DriverManager
 
 /**
  * Created by David Sanford on 15/07/17.
  */
-interface KronusOrm_DBConnectable: DBConnectable {
+interface KronusOrm_DBConnector : DBConnector {
+
     override fun connect() {
         var databaseName = databaseName?.let { it } ?: return //trow an error in future
 

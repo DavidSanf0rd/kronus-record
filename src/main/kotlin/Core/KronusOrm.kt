@@ -1,18 +1,19 @@
 package Core
 
-import Extensions.OperationalSystem
+import Core.implementations.KronusOrm_DBConnector
+import Core.implementations.KronusOrm_DBWriter
 import java.sql.Connection
-import java.sql.DriverManager
 
 /**
  * Created by sanf0rd on 09/07/17.
  */
-class KronusOrm(): KronusOrm_DBConnectable {
+class KronusOrm(): KronusOrm_DBConnector, KronusOrm_DBWriter {
 
     override var databaseName: String? = null
     override var databasePath: String? = null
 
-    override var connection: Connection? = null
+    lateinit override var connection: Connection
+    override val tableManager: TableManager by lazy { TableManager(connection) }
 
     constructor(databaseName: String): this() {
         this.databaseName = databaseName

@@ -1,4 +1,5 @@
 import Core.KronusOrm
+import Core.TableManager
 
 /**
  * Created by victoralisson on 20/06/17.
@@ -28,12 +29,10 @@ fun main(args: Array<String>) {
 //    val data = MyData(name = "Sanford", age = 19)
 //    data.hehe()
 
-    val kronus = KronusOrm("novo.db")
-    val tableManager = TableManager(kronus.connection!!)
+    val kronus = KronusOrm("rafael.db")
 
-    val user = User(email ="victoralissont5@gmail.com", name = "vó")
-
-    val result = tableManager.save(user)
+    val user = User(email ="cao@gmail.com", name = "vó")
+    val result = kronus.save(user)
 
     print(result)
 }

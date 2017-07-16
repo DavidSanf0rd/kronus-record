@@ -1,3 +1,5 @@
+package Core
+
 import SqlBuilder.SqlBuilder
 import SqlBuilder.create
 import SqlBuilder.insert

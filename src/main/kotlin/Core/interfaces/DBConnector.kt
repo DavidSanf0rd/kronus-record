@@ -1,15 +1,15 @@
-package Core
+package Core.interfaces
 
 import java.sql.Connection
 
 /**
 * Created by Sanf0rd on 15/07/17.
 */
-interface DBConnectable {
+interface DBConnector {
     var databaseName: String?
     var databasePath: String?
 
-    var connection: Connection?
+    var connection: Connection
 
     fun connect()
     fun disconnect()
