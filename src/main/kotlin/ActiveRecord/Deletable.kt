@@ -1,3 +1,5 @@
+package ActiveRecord
+
 import Core.interfaces.DBEntity
 
 /**
@@ -5,7 +7,7 @@ import Core.interfaces.DBEntity
  */
 
 interface Deletable<T: DataModel>: Referable, DBEntity {
-    fun delete() {
-        println("Deletando usuário")
+    fun destroy() {
+        this.context?.delete(this)
     }
 }

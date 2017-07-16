@@ -1,5 +1,6 @@
+package ActiveRecord
+
 import Core.interfaces.DBEntity
-import java.util.ArrayList
 
 /**
  * Created by victoralisson on 19/06/17.

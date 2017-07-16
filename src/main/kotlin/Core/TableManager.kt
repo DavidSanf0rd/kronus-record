@@ -2,10 +2,7 @@ package Core
 
 import Core.interfaces.DBEntity
 import Extensions.asListOf
-import SqlBuilder.SqlBuilder
-import SqlBuilder.create
-import SqlBuilder.insert
-import SqlBuilder.selectAllFrom
+import SqlBuilder.*
 import java.sql.Connection
 import java.sql.Statement
 import kotlin.properties.Delegates
@@ -38,6 +35,13 @@ class TableManager(connection: Connection) {
         return false
     }
 
+    fun destroy(clazz: Any) {
+        try {
+            statement.execute(SqlBuilder.destroyAll(clazz))
+        } catch (exception: Exception) {
+            println(exception)
+        }
+    }
     fun <T: DBEntity>allRegistersFor(entity: KClass<T>): List<DBEntity> {
         val query = SqlBuilder.selectAllFrom(entity)
 

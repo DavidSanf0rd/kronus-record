@@ -6,3 +6,5 @@ package Core.interfaces
 interface DBWriter: DBOperator {
     fun save(instance: DBEntity)
 }
+
+

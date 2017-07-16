@@ -1,3 +1,5 @@
+package ActiveRecord
+
 import Core.KronusOrm
 import Core.interfaces.DBEntity
 

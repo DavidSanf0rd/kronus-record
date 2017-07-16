@@ -1,3 +1,5 @@
+package ActiveRecord
+
 import Core.KronusOrm
 import Annotation.*
 
@@ -8,6 +10,7 @@ open class KronusRecord() : DataModel {
     @PrimaryKey
     @AutoIncrement
     var id: Int? = null
+
     override val context: KronusOrm?
         get() = KronusOrm("victor.db")
 
