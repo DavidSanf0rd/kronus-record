@@ -15,10 +15,11 @@ fun main(args: Array<String>) {
 //
 //    print(users)
     val user2 = User(email = "alissonmangueira@gmail.com", name = "victor")
-    user2.save()
-    user2.id = 1
 
-    user2.delete()
+    val last = user2.all()?.last() ?: return print("error geting the list")
 
-    print("deleted")
+    var firstUser = last as User
+    firstUser.name = "Victor cara de ..."
+
+    firstUser.update()
 }

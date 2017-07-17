@@ -1,15 +1,13 @@
 package Core
 
-import Core.implementations.KronusOrm_DBConnector
-import Core.implementations.KronusOrm_DBDestroyer
-import Core.implementations.KronusOrm_DBReader
-import Core.implementations.KronusOrm_DBWriter
+import Core.implementations.*
 import java.sql.Connection
 
 /**
  * Created by sanf0rd on 09/07/17.
  */
-class KronusOrm(): KronusOrm_DBConnector, KronusOrm_DBWriter, KronusOrm_DBReader, KronusOrm_DBDestroyer {
+class KronusOrm(): KronusOrm_DBConnector, KronusOrm_DBWriter,
+        KronusOrm_DBReader, KronusOrm_DBDestroyer, KronusOrm_DBUpdater {
 
     override var databaseName: String? = null
     override var databasePath: String? = null

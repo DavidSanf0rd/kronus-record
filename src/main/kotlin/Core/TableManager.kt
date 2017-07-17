@@ -36,6 +36,16 @@ class TableManager(connection: Connection) {
         return false
     }
 
+    fun updateRowFor(instance: DBEntity) {
+        try {
+            createTable(instance)
+            statement.execute(SqlBuilder.update(instance))
+
+        } catch (exception: Exception) {
+            println("Exception caught when updating values")
+        }
+    }
+
     fun deleteRowFor(instance: DBEntity) {
         try {
             createTable(instance)
