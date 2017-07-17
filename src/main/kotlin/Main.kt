@@ -14,6 +14,6 @@ fun main(args: Array<String>) {
 //    val users = kronus.allFrom(User::class)
 //
 //    print(users)
-//    val user2 = User(email = "alissonmangueira@gmail.com", name = "victor")
-//    user.destroy()
+    val user2 = User(email = "alissonmangueira@gmail.com", name = "victor")
+    user2.save()
 }

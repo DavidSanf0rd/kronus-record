@@ -59,6 +59,3 @@ fun SqlBuilder.Companion.insert(instance: Any): String {
     return queryBuilder.toString()
 }
 
-fun <T: DBEntity>SqlBuilder.Companion.destroyAll(entity: KClass<T>): String {
-    return "Delete FROM ${entity.simpleName};"
-}
