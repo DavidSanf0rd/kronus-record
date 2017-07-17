@@ -5,6 +5,7 @@ import Extensions.asListOf
 import SqlBuilder.*
 import java.sql.Connection
 import java.sql.Statement
+import javax.swing.text.html.parser.Entity
 import kotlin.properties.Delegates
 import kotlin.reflect.KClass
 
@@ -35,9 +36,9 @@ class TableManager(connection: Connection) {
         return false
     }
 
-    fun destroy(clazz: Any) {
+    fun <T: DBEntity> destroy(entity: KClass<T>) {
         try {
-            statement.execute(SqlBuilder.destroyAll(clazz))
+            statement.execute(SqlBuilder.destroyAll(entity))
         } catch (exception: Exception) {
             println(exception)
         }

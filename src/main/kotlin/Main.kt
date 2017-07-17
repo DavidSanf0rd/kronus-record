@@ -2,9 +2,6 @@ import Core.KronusOrm
 
 fun main(args: Array<String>) {
 
-//    val data = MyData(name = "Sanford", age = 19)
-//    data.hehe()
-
     val kronus = KronusOrm("gabi.db")
     val user = User(email ="ascao@gmail.com", name = "vsó")
     //kronus.save(user)
