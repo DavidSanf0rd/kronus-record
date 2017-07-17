@@ -18,7 +18,7 @@ fun main(args: Array<String>) {
 //    print(users)
     val user2 = User(email = "alissonmangueira@gmail.com", name = "victor")
 
-    val lastUser = user2.a.last()
+    val lastUser = user2.listAll().last()
 
     lastUser.name = "gabiiiiiiiii"
     lastUser.update()
