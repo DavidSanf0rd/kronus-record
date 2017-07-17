@@ -6,6 +6,7 @@ import kotlin.reflect.*
 import kotlin.reflect.full.findParameterByName
 import kotlin.reflect.full.memberProperties
 import kotlin.reflect.full.primaryConstructor
+import kotlin.reflect.jvm.javaSetter
 import kotlin.reflect.jvm.kotlinProperty
 
 /**
@@ -14,10 +15,9 @@ import kotlin.reflect.jvm.kotlinProperty
 fun <T : DBEntity> ResultSet.asListOf(entity: KClass<T>): List<DBEntity> {
     val resultList: MutableList<DBEntity> = mutableListOf()
 
-
     while (this.next()) {
         val parameterMap: MutableMap<KParameter, Any> = mutableMapOf()
-        val optionalsMap: MutableMap<KProperty1<T>, Any> = mutableMapOf()
+        val optionalsMap: MutableMap<KProperty1<T, *>, Any> = mutableMapOf()
         var entityConstructor = entity.primaryConstructor
 
         val fields = entity.java.declaredFields + entity.java.superclass.declaredFields
@@ -44,12 +44,17 @@ fun <T : DBEntity> ResultSet.asListOf(entity: KClass<T>): List<DBEntity> {
                 if (parameter != null) {
                     parameterMap.put(key = parameter, value = value)
                 } else {
-                    field.kotlinProperty
                     kProperty?.let{ optionalsMap.put(key = it, value = value) }
                 }
             }
         }
         val newEntity = entityConstructor?.callBy(parameterMap)
+
+        for ((property, value) in optionalsMap) {
+            if (property is KMutableProperty1<T, *>) {
+                property.javaSetter?.invoke(newEntity, value)
+            }
+        }
 
         newEntity?.let { resultList.add(it) }
     }
