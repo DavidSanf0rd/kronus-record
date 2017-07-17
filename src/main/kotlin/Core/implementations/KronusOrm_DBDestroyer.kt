@@ -10,10 +10,10 @@ import kotlin.reflect.KClass
 interface KronusOrm_DBDestroyer: DBDestroyer {
 
     override fun delete(instance: DBEntity) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        tableManager.deleteRowFor(instance)
     }
 
-    override fun <T : DBEntity> deleteTableFor(entity: KClass<T>) {
+    override fun <T: DBEntity> deleteTableFor(entity: KClass<T>) {
         tableManager.destroy(entity)
     }
 }

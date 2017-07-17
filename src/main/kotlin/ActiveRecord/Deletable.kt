@@ -10,4 +10,8 @@ interface Deletable<T: DataModel>: Referable, DBEntity {
     fun destroy() {
         this.context?.deleteTableFor(this::class)
     }
+
+    fun delete() {
+        this.context?.delete(this)
+    }
 }

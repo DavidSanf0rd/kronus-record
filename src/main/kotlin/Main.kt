@@ -16,4 +16,9 @@ fun main(args: Array<String>) {
 //    print(users)
     val user2 = User(email = "alissonmangueira@gmail.com", name = "victor")
     user2.save()
+    user2.id = 1
+
+    user2.delete()
+
+    print("deleted")
 }

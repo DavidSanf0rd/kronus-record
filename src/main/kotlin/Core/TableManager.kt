@@ -36,6 +36,16 @@ class TableManager(connection: Connection) {
         return false
     }
 
+    fun deleteRowFor(instance: DBEntity) {
+        try {
+            createTable(instance)
+            statement.execute(SqlBuilder.deleteRowFor(entity = instance))
+
+        } catch (exception: Exception) {
+            println("Exception caught when inserting values")
+        }
+    }
+
     fun <T: DBEntity> destroy(entity: KClass<T>) {
         try {
             statement.execute(SqlBuilder.destroyAll(entity))
