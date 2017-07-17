@@ -8,6 +8,6 @@ import Core.interfaces.DBEntity
 
 interface Deletable<T: DataModel>: Referable, DBEntity {
     fun destroy() {
-        this.context?.delete(this)
+        this.context?.deleteTableFor(this::class)
     }
 }
