@@ -13,3 +13,11 @@ interface Readable<T: DataModel>: Referable, DBEntity {
         return all
    }
 }
+
+/**
+ * Use this temporaly to return a llist of the own entity
+ */
+fun <T : Readable<DataModel>> T.listAll(): List<T> {
+    val all = this.context?.allFrom(this::class)
+    return all as List<T>
+}

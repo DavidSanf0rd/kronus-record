@@ -1,3 +1,5 @@
+import ActiveRecord.listAll
+
 fun main(args: Array<String>) {
 //    val kronus = KronusOrm("gabi.db")
 //    val user = User(email ="ascao@gmail.com", name = "vsó")
@@ -16,10 +18,8 @@ fun main(args: Array<String>) {
 //    print(users)
     val user2 = User(email = "alissonmangueira@gmail.com", name = "victor")
 
-    val last = user2.all()?.last() ?: return print("error geting the list")
+    val lastUser = user2.a.last()
 
-    var firstUser = last as User
-    firstUser.name = "Victor cara de ..."
-
-    firstUser.update()
+    lastUser.name = "gabiiiiiiiii"
+    lastUser.update()
 }
